@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 统一容器：左右留白 + 合理最大宽度 */
+.container {
+  max-width: 1040px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+/* 标题与正文的默认排版（少写重复 class） */
+h1 { font-size: 1.875rem; /* text-3xl */ font-weight: 700; margin: 0 0 .75rem 0; text-align: center; }
+h2 { font-size: 1.25rem;  /* text-xl  */ font-weight: 600; margin: 1.25rem 0 .5rem 0; }
+p  { line-height: 1.75; color: #4b5563; } /* text-gray-600 */
+
+/* 小装饰：分割线条 */
+.hr {
+  height: 2px; width: 72px; background: #e5e7eb; margin: .5rem auto 1.25rem auto; border-radius: 9999px;
+}
+
+@layer components {
+  .btn { @apply inline-block px-6 py-3 rounded-lg transition; }
+  .btn-primary { @apply bg-blue-600 text-white hover:bg-blue-700; }
+  .btn-outline { @apply border border-blue-600 text-blue-600 bg-white hover:bg-blue-50; }
+}
